@@ -42,33 +42,33 @@ void fill_area(int32_t x1, int32_t y1, int32_t x2, int32_t y2, uint16_t color)
 
 static void show_qrcode()
 {
-	int i,j,x,y,p;
-	EncodeData("https://github.com/InfiniteYuan1?tab=repositories");
+    int i,j,x,y,p;
+    EncodeData("https://github.com/InfiniteYuan1?tab=repositories");
 
-	if(m_nSymbleSize*2>LCD_WIDTH)
-	{
-		printf("qzhu size is too large\n");
-		return;
-	}
-	
-	for(i=0;i<10;i++)
-	{
-		if((m_nSymbleSize*i*2)>LCD_WIDTH)	break;
-	}
-	p = (i-1)*2;
-	x = (LCD_WIDTH-m_nSymbleSize*p)/2;
-	y = LCD_HEIGHT-LCD_WIDTH;
+    if(m_nSymbleSize*2>LCD_WIDTH)
+    {
+        printf("qzhu size is too large\n");
+        return;
+    }
 
-	for(i=0;i<m_nSymbleSize;i++)
-	{
-		for(j=0;j<m_nSymbleSize;j++)
-		{
-			if(m_byModuleData[i][j]==1)
-			{					
-				fill_area(x+p*i,y+p*j,x+p*(i+1),y+p*(j+1), 0x0);// 填充
-      }
-		}
-	}
+    for(i=0;i<10;i++)
+    {
+        if((m_nSymbleSize*i*2)>LCD_WIDTH)	break;
+    }
+    p = (i-1)*2;
+    x = (LCD_WIDTH-m_nSymbleSize*p)/2;
+    y = LCD_HEIGHT-LCD_WIDTH;
+
+    for(i=0;i<m_nSymbleSize;i++)
+    {
+        for(j=0;j<m_nSymbleSize;j++)
+        {
+            if(m_byModuleData[i][j]==1)
+            {					
+                fill_area(x+p*i,y+p*j,x+p*(i+1),y+p*(j+1), 0x0);// 填充
+            }
+        }
+    }
 }
 ```
 
